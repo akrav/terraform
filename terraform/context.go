@@ -124,11 +124,13 @@ type Context struct {
 // the values themselves.
 func NewContext(opts *ContextOpts) (*Context, error) {
 	// Validate the version requirement if it is given
-	if opts.Module != nil {
+	// FIXME: Update this for the new configuration model.
+	panic("core version checking not yet implemented for new configuration model")
+	/*if opts.Module != nil {
 		if err := CheckRequiredVersion(opts.Module); err != nil {
 			return nil, err
 		}
-	}
+	}*/
 
 	// Copy all the hooks and add our stop hook. We don't append directly
 	// to the Config so that we're not modifying that in-place.
