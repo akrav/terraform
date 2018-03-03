@@ -36,10 +36,10 @@ func scanTokens(data []byte, filename string, start hcl.Pos, mode scanMode) []To
 
         NumberLitContinue = (digit|'.'|('e'|'E') ('+'|'-')? digit);
         NumberLit = digit ("" | (NumberLitContinue - '.') | (NumberLitContinue* (NumberLitContinue - '.')));
-        Ident = ID_Start (ID_Continue | '-')*;
+        Ident = (ID_Start | '_') (ID_Continue | '-')*;
 
         # Symbols that just represent themselves are handled as a single rule.
-        SelfToken = "[" | "]" | "(" | ")" | "." | "," | "*" | "/" | "+" | "-" | "=" | "<" | ">" | "!" | "?" | ":" | "\n" | "&" | "|" | "~" | "^" | ";" | "`";
+        SelfToken = "[" | "]" | "(" | ")" | "." | "," | "*" | "/" | "%" | "+" | "-" | "=" | "<" | ">" | "!" | "?" | ":" | "\n" | "&" | "|" | "~" | "^" | ";" | "`";
 
         EqualOp = "==";
         NotEqual = "!=";
